@@ -1,0 +1,8 @@
+{
+  "require": {
+    "hhvm": "3.*",
+    "aseba/php-instagram-lib": "dev-master",
+    "videlalvaro/php-amqplib": "2.2.*"
+  },
+  "minimum-stability": "dev"
+}
