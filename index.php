@@ -6,11 +6,13 @@ require_once 'MyProcessor.php';
 $igKey    = getenv('INSTAGRAM_CLIENT_ID');
 $igSecret = getenv('INSTAGRAM_CLIENT_SECRET');
 
+MyProcessor::$client_secret = $igSecret;
+
 if (isset($_GET['hub_challenge'])) {
     echo $_GET['hub_challenge'];
 } elseif( isset($_SERVER['HTTP_X_HUB_SIGNATURE'])) {
     $igdata = file_get_contents("php://input");
-    if (hash_hmac('sha1', $igdata, MyProcessor::client_secret) == $_SERVER['HTTP_X_HUB_SIGNATURE']) {
+    if (hash_hmac('sha1', $igdata, MyProcessor::$client_secret) == $_SERVER['HTTP_X_HUB_SIGNATURE']) {
         MyProcessor::process(json_decode($igdata));
     }
 } else {

@@ -1,9 +1,10 @@
 <?php
 
 class MyProcessor extends SubscriptionProcessor {
-	const client_secret = 'YOUR API SECRET';
+        public static $client_secret;
+
 	// Redefine this function
 	public static function process($data){
-            error_log($data);
+            error_log(json_encode($data));
 	}
 }
