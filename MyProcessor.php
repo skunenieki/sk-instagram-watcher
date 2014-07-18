@@ -29,7 +29,7 @@ class MyProcessor extends SubscriptionProcessor {
             $message = array('source' => 'ig', 'data' => $data);
             $msg_body = json_encode($message);
             $msg = new AMQPMessage($msg_body, array('content_type' => 'text/plain', 'delivery_mode' => 2));
-            $ch->basic_publish($msg, $this->exchange);
+            $ch->basic_publish($msg, $exchange);
 
             $ch->close();
             $conn->close();
