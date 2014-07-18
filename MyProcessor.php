@@ -1,5 +1,6 @@
 <?php
 
+use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Connection\AMQPConnection;
 
 class MyProcessor extends SubscriptionProcessor {
