@@ -4,10 +4,9 @@ use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Connection\AMQPConnection;
 
 class MyProcessor extends SubscriptionProcessor {
-        public static $client_secret;
+      public static $client_secret;
 
-	// Redefine this function
-	public static function process($data) {
+      public static function process($data) {
             $exchange = 'router';
             $queue    = 'msgs';
             $port     = '5672';
@@ -33,6 +32,6 @@ class MyProcessor extends SubscriptionProcessor {
 
             $ch->close();
             $conn->close();
-	}
+      }
 }
 

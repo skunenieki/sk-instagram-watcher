@@ -18,4 +18,5 @@ if (isset($_GET['hub_challenge'])) {
 } else {
     $irt = new InstagramRealTime($igKey, $igSecret, 'http://sk-instagram-watcher.herokuapp.com/');
     $r = $irt->addSubscription('tag', 'media', 'skunenieki');
+    error_log(json_encode($r));
 }
