@@ -8,6 +8,9 @@ $igSecret = getenv('INSTAGRAM_CLIENT_SECRET');
 
 MyProcessor::$client_secret = $igSecret;
 
+var_dump($_SERVER['REQUEST_URI']);
+die;
+
 if (isset($_GET['hub_challenge'])) {
     echo $_GET['hub_challenge'];
 } elseif( isset($_SERVER['HTTP_X_HUB_SIGNATURE'])) {
@@ -16,7 +19,8 @@ if (isset($_GET['hub_challenge'])) {
         MyProcessor::process(json_decode($igdata));
     }
 } else {
-    $irt = new InstagramRealTime($igKey, $igSecret, 'http://sk-instagram-watcher.herokuapp.com/');
-    $r = $irt->addSubscription('tag', 'media', 'skunenieki');
-    error_log(json_encode($r));
+    // $irt = new InstagramRealTime($igKey, $igSecret, 'http://sk-instagram-watcher.herokuapp.com/');
+    // $r = $irt->addSubscription('tag', 'media', 'skunenieki');
+    // error_log(json_encode($r));
+    echo 'Subscribed';
 }
